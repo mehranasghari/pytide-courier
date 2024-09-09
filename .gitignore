@@ -1,0 +1,10 @@
+.venv/
+env/
+venv/
+Pipfile.lock
+
+__pycache__/
+*.pyc
+*.pyo
+
+.env
