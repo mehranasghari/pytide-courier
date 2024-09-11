@@ -1,12 +1,6 @@
 import click
-from dotenv import load_dotenv
 import os
 from mail import send_mail
-
-load_dotenv()
-EMAIL_USER = os.getenv('EMAIL_USER')
-DEFAULT_SUBJECT = os.getenv('DEFAULT_SUBJECT')
-DEFAULT_MESSAGE = os.getenv('DEFAULT_MESSAGE')
 
 @click.group(context_settings=dict(max_content_width=120))
 def pytide_courier():
