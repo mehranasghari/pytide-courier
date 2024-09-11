@@ -16,8 +16,11 @@ def send_mail(address, subject, message):
     msg['From'] = EMAIL_USER
     msg['To'] = address
     print(msg)
-    server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
-    server.starttls()
-    server.login(EMAIL_USER, EMAIL_PASSWORD)
-    server.send_message(msg)
-    server.quit()
+    try:
+        server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+        server.starttls()
+        server.login(EMAIL_USER, EMAIL_PASSWORD)
+        server.send_message(msg)
+        server.quit()
+    except Exception as e:
+        print(f"Failed to send email: {e}")
