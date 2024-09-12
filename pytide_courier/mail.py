@@ -2,8 +2,9 @@ import smtplib
 from email.message import EmailMessage
 from dotenv import load_dotenv
 import os
+import time
 
-def send_mail(address, subject, message):
+def send_mail(address, subject, message, delay):
     load_dotenv()
     EMAIL_USER = os.getenv('EMAIL_USER')
     EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
@@ -19,6 +20,7 @@ def send_mail(address, subject, message):
         server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
         server.starttls()
         server.login(EMAIL_USER, EMAIL_PASSWORD)
+        time.sleep(delay)
         server.send_message(msg)
         server.quit()
         print(f"Email sent to address: {address}")
