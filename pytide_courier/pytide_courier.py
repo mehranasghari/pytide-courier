@@ -11,7 +11,7 @@ def pytide_courier():
 @click.argument('email_address', metavar='<email_address>')
 @click.argument('subject', metavar='<subject>')
 @click.argument('message', metavar='<message>')
-@click.option('--delay', '-d', help="After this delay in seconds, your email will be sent", type=int, default=0)
+@click.option('--delay', '-d', help="After this delay in seconds, your email will be sent", type=int, default=0, show_default=True)
 def send_email(email_address, subject, message, delay):
     """
     Send an email\n
